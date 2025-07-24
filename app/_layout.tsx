@@ -127,7 +127,6 @@ import 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 import { router, Slot, Stack } from 'expo-router';
 import { useColorScheme } from '@/hooks/useColorScheme';
-
 import { ClerkProvider, useAuth } from '@clerk/clerk-expo';
 import Constants from 'expo-constants';
 import { tokenCache } from '@clerk/clerk-expo/token-cache';
@@ -165,6 +164,8 @@ function LayoutContent() {
       <Stack.Screen name="pepper" options={{ headerShown: false }} />
       <Stack.Screen name="chatbot" options={{ headerShown: false }} />
       <Stack.Screen name="potato" options={{ headerShown: false }} />
+      <Stack.Screen name="about" options={{ headerShown: false }} />
+      <Stack.Screen name="articles" options={{ headerShown: false }} />
       <Stack.Screen
         name="diagnose"
         options={{

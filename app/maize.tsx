@@ -206,7 +206,7 @@
 
 
 
-"use client"
+
 
 import { useState } from "react"
 import { View, Text, StyleSheet, ImageBackground, ScrollView, TouchableOpacity } from "react-native"

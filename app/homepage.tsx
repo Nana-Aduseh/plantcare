@@ -1,228 +1,130 @@
-// import React from 'react';
-// import { View, Text, Alert, TextInput, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
-// import { Ionicons } from '@expo/vector-icons';
-// import { router } from 'expo-router';
-
-// export default function HomePage() {
-//   return (
-//     <View style={{ flex: 1 }}>
-//       <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
-//         <View style={styles.header}>
-//           <Text style={styles.headerText}>PlantCare</Text>
-//           <TouchableOpacity
-//             onPress={() =>
-//               Alert.alert(
-//                 "Crop Disease Detection",
-//                 `This system focuses on diagnosing diseases in four key crops:\n\n
-// • Tomato:
-//   - Early blight
-//   - Late blight
-//   - Bacterial spot
-//   - Tomato Yellow Leaf Curl Virus\n\n
-// • Pepper (Bell Pepper):
-//   - Bacterial spot\n\n
-// • Maize (Corn):
-//   - Leaf blight
-//   - Leaf spot
-//   - Streak virus\n\n
-// • Cassava:
-//   - Bacterial blight
-//   - Green mite
-//   - Mosaic`,
-//                 [{ text: "OK", style: "default" }]
-//               )
-//             }
-//           >
-//             <Ionicons name="information-circle-outline" size={30} style={styles.icon} color="black" />
-//           </TouchableOpacity>
-//         </View>
-
-//         <Image source={require('../assets/images/homee.jpeg')} style={styles.image} />
-
-//         <TouchableOpacity style={styles.button} onPress={() => router.push('/diagnose')}>
-//           <Ionicons name="camera" size={24} style={styles.icon2} color="white" />
-//           <Text style={styles.buttonText}>Diagnose Your Plant</Text>
-//         </TouchableOpacity>
-
-//         <View style={styles.articlesHeader}>
-//           <Text style={styles.artext}>Articles on Plants</Text>
-//         </View>
-
-//         <View style={{ marginTop: 10 }}>
-//           <View style={styles.articleGrid}>
-//             <TouchableOpacity style={styles.articleCard} onPress={() => router.push('/cassava')}>
-//               <Image source={require('../assets/images/cassava.webp')} style={styles.articleImage} />
-//               <Text style={styles.articleTitle}>Cassava</Text>
-//             </TouchableOpacity>
-
-//             <TouchableOpacity style={styles.articleCard} onPress={() => router.push('/tomato')}>
-//               <Image source={require('../assets/images/tomato.jpg')} style={styles.articleImage} />
-//               <Text style={styles.articleTitle}>Tomato</Text>
-//             </TouchableOpacity>
-//           </View>
-
-//           <View style={styles.articleGrid}>
-//             <TouchableOpacity style={styles.articleCard} onPress={() => router.push('/pepper')}>
-//               <Image source={require('../assets/images/pepper.jpg')} style={styles.articleImage} />
-//               <Text style={styles.articleTitle}>Pepper</Text>
-//             </TouchableOpacity>
-
-//             <TouchableOpacity style={styles.articleCard} onPress={() => router.push('/maize')}>
-//               <Image source={require('../assets/images/corn.jpg')} style={styles.articleImage} />
-//               <Text style={styles.articleTitle}>Maize</Text>
-//             </TouchableOpacity>
-//           </View>
-
-//           <View style={[styles.articleGrid, { justifyContent: 'flex-start' }]}>
-//             <TouchableOpacity style={styles.articleCard} onPress={() => router.push('/potato')}>
-//               <Image source={require('../assets/images/potato.jpg')} style={styles.articleImage} />
-//               <Text style={styles.articleTitle}>Potato</Text>
-//             </TouchableOpacity>
-//           </View>
-//         </View>
-
-//         {/* Spacer to prevent tab bar overlap */}
-//         <View style={{ height: 80 }} />
-//       </ScrollView>
-
-//       {/* Static Bottom Navigation Tab */}
-//       <View style={styles.bottomTab}>
-//         <TouchableOpacity style={styles.tabButton} onPress={() => router.push('/homepage')}>
-//           <Ionicons name="home-outline" size={24} color="black" />
-//           <Text style={styles.tabLabel}>Home</Text>
-//         </TouchableOpacity>
-
-//         <TouchableOpacity style={styles.tabButton} onPress={() => router.push('/diagnose')}>
-//           <Ionicons name="camera-outline" size={24} color="black" />
-//           <Text style={styles.tabLabel}>Scan</Text>
-//         </TouchableOpacity>
-
-//         <TouchableOpacity style={styles.tabButton} onPress={() => router.push('/chatbot')}>
-//           <Ionicons name="chatbubble-ellipses-outline" size={24} color="black" />
-//           <Text style={styles.tabLabel}>Chatbot</Text>
-//         </TouchableOpacity>
-//       </View>
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flexGrow: 1,
-//     backgroundColor: '#ffffff',
-//     padding: 20,
-//     paddingBottom: 100, 
-//   },
-//   header: {
-//     flexDirection: 'row',
-//     marginTop: 15,
-//   },
-//   headerText: {
-//     fontWeight: 'bold',
-//     fontSize: 24,
-//   },
-//   icon: {
-//     marginLeft: 210,
-//   },
-//   image: {
-//     width: '100%',
-//     height: 200,
-//     marginTop: 20,
-//     borderRadius: 20,
-//   },
-//   button: {
-//     backgroundColor: '#4CAF50',
-//     flexDirection: 'row',
-//     paddingVertical: 12,
-//     borderRadius: 12,
-//     width: '100%',
-//     alignItems: 'center',
-//     marginTop: 20,
-//   },
-//   icon2: {
-//     marginLeft: '25%',
-//     marginRight: 10,
-//   },
-//   buttonText: {
-//     color: '#fff',
-//     fontWeight: 'bold',
-//   },
-//   articlesHeader: {
-//     flexDirection: "row",
-//     marginTop: 30,
-//   },
-//   artext: {
-//     fontWeight: 'bold',
-//     fontSize: 17,
-//   },
-//   articleGrid: {
-//     flexDirection: 'row',
-//     justifyContent: 'space-between',
-//     marginBottom: 16,
-//   },
-//   articleCard: {
-//     width: '48%',
-//     backgroundColor: '#F2F2F2',
-//     borderRadius: 16,
-//     padding: 8,
-//     shadowColor: '#000',
-//     shadowOpacity: 0.05,
-//     shadowRadius: 4,
-//     elevation: 2,
-//   },
-//   articleImage: {
-//     width: '100%',
-//     height: 140,
-//     borderRadius: 12,
-//   },
-//   articleTitle: {
-//     marginTop: 10,
-//     fontSize: 16,
-//     fontWeight: '600',
-//     textAlign: 'center',
-//     color: '#333',
-//   },
-//   bottomTab: {
-//     flexDirection: 'row',
-//     justifyContent: 'space-around',
-//     alignItems: 'center',
-//     backgroundColor: '#f2f2f2',
-//     paddingVertical: 10,
-//     borderTopWidth: 1,
-//     borderColor: '#ccc',
-//     position: 'absolute',
-//     bottom: 0,
-//     left: 0,
-//     right: 0,
-//     height: 60,
-//     zIndex: 100,
-//   },
-//   tabButton: {
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-//   tabLabel: {
-//     fontSize: 12,
-//     marginTop: 2,
-//   },
-// });
-
-
-
-
-import { View, Text, Alert, TouchableOpacity, StyleSheet, ScrollView, Image } from "react-native"
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image, Animated, Dimensions } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import { router } from "expo-router"
 import { LinearGradient } from "expo-linear-gradient"
+import { useState, useEffect, useRef } from "react"
+import { useUser, useAuth } from "@clerk/clerk-expo"
+
+const { width: SCREEN_WIDTH } = Dimensions.get("window")
+const SIDEBAR_WIDTH = 320
 
 export default function HomePage() {
-  const handleInfoPress = () => {
-    Alert.alert(
-      "Crop Disease Detection",
-      `This system focuses on diagnosing diseases in four key crops:\n\n• Tomato:\n  - Early blight\n  - Late blight\n  - Bacterial spot\n  - Tomato Yellow Leaf Curl Virus\n\n• Pepper (Bell Pepper):\n  - Bacterial spot\n\n• Maize (Corn):\n  - Leaf blight\n  - Leaf spot\n  - Streak virus\n\n• Cassava:\n  - Bacterial blight\n  - Green mite\n  - Mosaic`,
-      [{ text: "OK", style: "default" }],
-    )
+  const [sidebarVisible, setSidebarVisible] = useState(false)
+  const slideAnim = useRef(new Animated.Value(SIDEBAR_WIDTH)).current
+  const overlayOpacity = useRef(new Animated.Value(0)).current
+
+  const { user } = useUser()
+  const { signOut } = useAuth()
+
+  
+
+  const handleUserPress = () => {
+    setSidebarVisible(true)
   }
+
+  const closeSidebar = () => {
+    setSidebarVisible(false)
+  }
+
+  const handleSignOut = async () => {
+    try {
+      await signOut()
+      setSidebarVisible(false)
+    } catch (error) {
+      console.error("Error signing out:", error)
+    }
+  }
+
+  useEffect(() => {
+    if (sidebarVisible) {
+      Animated.parallel([
+        Animated.timing(slideAnim, {
+          toValue: 0,
+          duration: 300,
+          useNativeDriver: true,
+        }),
+        Animated.timing(overlayOpacity, {
+          toValue: 1,
+          duration: 300,
+          useNativeDriver: true,
+        }),
+      ]).start()
+    } else {
+      Animated.parallel([
+        Animated.timing(slideAnim, {
+          toValue: SIDEBAR_WIDTH,
+          duration: 300,
+          useNativeDriver: true,
+        }),
+        Animated.timing(overlayOpacity, {
+          toValue: 0,
+          duration: 300,
+          useNativeDriver: true,
+        }),
+      ]).start()
+    }
+  }, [sidebarVisible])
+
+  const userEmail = user?.emailAddresses[0]?.emailAddress || "No email found"
+  const userName = user?.fullName || user?.firstName || "User"
+  const userImage = user?.imageUrl
+
+  const sidebarItems = [
+    {
+      icon: "person-outline",
+      title: "Edit Profile",
+      subtitle: "Update your personal information",
+      onPress: () => {
+        setSidebarVisible(false)
+        console.log("Navigate to profile edit")
+      },
+    },
+    {
+      icon: "notifications-outline",
+      title: "Notifications",
+      subtitle: "Manage your notification preferences",
+      onPress: () => {
+        setSidebarVisible(false)
+        console.log("Navigate to notifications")
+      },
+    },
+    {
+      icon: "bookmark-outline",
+      title: "Saved Articles",
+      subtitle: "View your bookmarked plant guides",
+      onPress: () => {
+        setSidebarVisible(false)
+        console.log("Navigate to saved articles")
+      },
+    },
+    {
+      icon: "time-outline",
+      title: "Scan History",
+      subtitle: "Review your previous plant scans",
+      onPress: () => {
+        setSidebarVisible(false)
+        console.log("Navigate to scan history")
+      },
+    },
+    {
+      icon: "settings-outline",
+      title: "Settings",
+      subtitle: "App preferences and configurations",
+      onPress: () => {
+        setSidebarVisible(false)
+        console.log("Navigate to settings")
+      },
+    },
+    {
+      icon: "help-circle-outline",
+      title: "Help & Support",
+      subtitle: "Get help and contact support",
+      onPress: () => {
+        setSidebarVisible(false)
+        router.push("/about")
+      },
+    },
+  ]
 
   return (
     <View style={styles.container}>
@@ -236,8 +138,8 @@ export default function HomePage() {
               </View>
               <Text style={styles.headerText}>PlantCare</Text>
             </View>
-            <TouchableOpacity onPress={handleInfoPress} style={styles.infoButton}>
-              <Ionicons name="information-circle-outline" size={28} color="#16a34a" />
+            <TouchableOpacity onPress={handleUserPress} style={styles.userButton}>
+              <Ionicons name="person-circle-outline" size={28} color="#16a34a" />
             </TouchableOpacity>
           </View>
 
@@ -278,7 +180,6 @@ export default function HomePage() {
           <Text style={styles.sectionSubtitle}>
             Our comprehensive platform combines cutting-edge AI technology with expert knowledge
           </Text>
-
           <View style={styles.featuresGrid}>
             {/* Disease Detection Feature */}
             <TouchableOpacity
@@ -330,77 +231,28 @@ export default function HomePage() {
           </View>
         </View>
 
-        {/* Articles Section */}
-        <View style={styles.articlesSection}>
-          <View style={styles.articlesSectionHeader}>
-            <View>
-              <Text style={styles.articlesTitle}>Plant Care Guides</Text>
-              <Text style={styles.articlesSubtitle}>Learn about different plant species and their care</Text>
-            </View>
+        {/* Quick Articles Preview */}
+        <View style={styles.articlesPreview}>
+          <View style={styles.previewHeader}>
+            <Text style={styles.previewTitle}>Popular Plant Guides</Text>
+            <TouchableOpacity onPress={() => router.push("/articles")}>
+              <Text style={styles.viewAllText}>View All</Text>
+            </TouchableOpacity>
           </View>
-
-          <View style={styles.articlesGrid}>
-            <View style={styles.articleRow}>
-              <TouchableOpacity style={styles.modernArticleCard} onPress={() => router.push("/cassava")}>
-                <Image source={require("../assets/images/cassava.webp")} style={styles.modernArticleImage} />
-                <View style={styles.articleContent}>
-                  <View style={styles.articleBadge}>
-                    <Text style={styles.articleBadgeText}>Root Crop</Text>
-                  </View>
-                  <Text style={styles.modernArticleTitle}>Cassava</Text>
-                  <Text style={styles.articleExcerpt}>Learn about cassava diseases and proper care techniques</Text>
-                </View>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.modernArticleCard} onPress={() => router.push("/tomato")}>
-                <Image source={require("../assets/images/tomato.jpg")} style={styles.modernArticleImage} />
-                <View style={styles.articleContent}>
-                  <View style={styles.articleBadge}>
-                    <Text style={styles.articleBadgeText}>Fruit</Text>
-                  </View>
-                  <Text style={styles.modernArticleTitle}>Tomato</Text>
-                  <Text style={styles.articleExcerpt}>Comprehensive guide to tomato plant health and diseases</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-
-            <View style={styles.articleRow}>
-              <TouchableOpacity style={styles.modernArticleCard} onPress={() => router.push("/pepper")}>
-                <Image source={require("../assets/images/pepper.jpg")} style={styles.modernArticleImage} />
-                <View style={styles.articleContent}>
-                  <View style={styles.articleBadge}>
-                    <Text style={styles.articleBadgeText}>Vegetable</Text>
-                  </View>
-                  <Text style={styles.modernArticleTitle}>Pepper</Text>
-                  <Text style={styles.articleExcerpt}>Essential tips for growing healthy pepper plants</Text>
-                </View>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.modernArticleCard} onPress={() => router.push("/maize")}>
-                <Image source={require("../assets/images/corn.jpg")} style={styles.modernArticleImage} />
-                <View style={styles.articleContent}>
-                  <View style={styles.articleBadge}>
-                    <Text style={styles.articleBadgeText}>Grain</Text>
-                  </View>
-                  <Text style={styles.modernArticleTitle}>Maize</Text>
-                  <Text style={styles.articleExcerpt}>Complete guide to corn cultivation and disease prevention</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-
-            <View style={[styles.articleRow, styles.singleArticleRow]}>
-              <TouchableOpacity style={styles.modernArticleCard} onPress={() => router.push("/potato")}>
-                <Image source={require("../assets/images/potato.jpg")} style={styles.modernArticleImage} />
-                <View style={styles.articleContent}>
-                  <View style={styles.articleBadge}>
-                    <Text style={styles.articleBadgeText}>Tuber</Text>
-                  </View>
-                  <Text style={styles.modernArticleTitle}>Potato</Text>
-                  <Text style={styles.articleExcerpt}>Master potato growing with our expert care guide</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          </View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScroll}>
+            <TouchableOpacity style={styles.previewCard} onPress={() => router.push("/tomato")}>
+              <Image source={require("../assets/images/tomato.jpg")} style={styles.previewImage} />
+              <Text style={styles.previewCardTitle}>Tomato Care</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.previewCard} onPress={() => router.push("/cassava")}>
+              <Image source={require("../assets/images/cassava.webp")} style={styles.previewImage} />
+              <Text style={styles.previewCardTitle}>Cassava Guide</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.previewCard} onPress={() => router.push("/pepper")}>
+              <Image source={require("../assets/images/pepper.jpg")} style={styles.previewImage} />
+              <Text style={styles.previewCardTitle}>Pepper Tips</Text>
+            </TouchableOpacity>
+          </ScrollView>
         </View>
 
         {/* Bottom Spacer */}
@@ -415,21 +267,102 @@ export default function HomePage() {
           </View>
           <Text style={[styles.tabLabel, styles.activeTabLabel]}>Home</Text>
         </TouchableOpacity>
-
         <TouchableOpacity style={styles.tabButton} onPress={() => router.push("/diagnose")}>
           <View style={styles.tabIconContainer}>
             <Ionicons name="camera-outline" size={24} color="#6b7280" />
           </View>
           <Text style={styles.tabLabel}>Scan</Text>
         </TouchableOpacity>
-
         <TouchableOpacity style={styles.tabButton} onPress={() => router.push("/chatbot")}>
           <View style={styles.tabIconContainer}>
             <Ionicons name="chatbubble-ellipses-outline" size={24} color="#6b7280" />
           </View>
           <Text style={styles.tabLabel}>Chatbot</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={styles.tabButton} onPress={() => router.push("/articles")}>
+          <View style={styles.tabIconContainer}>
+            <Ionicons name="library-outline" size={24} color="#6b7280" />
+          </View>
+          <Text style={styles.tabLabel}>Articles</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.tabButton} onPress={() => router.push("/about")}>
+          <View style={styles.tabIconContainer}>
+            <Ionicons name="information-circle-outline" size={24} color="#6b7280" />
+          </View>
+          <Text style={styles.tabLabel}>About</Text>
+        </TouchableOpacity>
       </View>
+
+      {/* Sidebar Overlay and Sidebar */}
+      {sidebarVisible && (
+        <>
+          <Animated.View
+            style={[
+              styles.overlay,
+              {
+                opacity: overlayOpacity,
+              },
+            ]}
+          >
+            <TouchableOpacity style={styles.overlayTouch} onPress={closeSidebar} activeOpacity={1} />
+          </Animated.View>
+
+          <Animated.View
+            style={[
+              styles.sidebar,
+              {
+                transform: [{ translateX: slideAnim }],
+              },
+            ]}
+          >
+            {/* Header */}
+            <View style={styles.sidebarHeader}>
+              <TouchableOpacity onPress={closeSidebar} style={styles.closeButton}>
+                <Ionicons name="close" size={24} color="#6b7280" />
+              </TouchableOpacity>
+            </View>
+
+            {/* User Info */}
+            <View style={styles.userInfo}>
+              <View style={styles.avatarContainer}>
+                {userImage ? (
+                  <Image source={{ uri: userImage }} style={styles.avatar} />
+                ) : (
+                  <View style={styles.avatarPlaceholder}>
+                    <Ionicons name="person" size={32} color="#16a34a" />
+                  </View>
+                )}
+              </View>
+              <Text style={styles.userName}>{userName}</Text>
+              <Text style={styles.userEmail}>{userEmail}</Text>
+            </View>
+
+            {/* Menu Items */}
+            <ScrollView style={styles.menuContainer}>
+              {sidebarItems.map((item, index) => (
+                <TouchableOpacity key={index} style={styles.menuItem} onPress={item.onPress}>
+                  <View style={styles.menuIconContainer}>
+                    <Ionicons name={item.icon as any} size={24} color="#16a34a" />
+                  </View>
+                  <View style={styles.menuContent}>
+                    <Text style={styles.menuTitle}>{item.title}</Text>
+                    <Text style={styles.menuSubtitle}>{item.subtitle}</Text>
+                  </View>
+                  <Ionicons name="chevron-forward" size={20} color="#9ca3af" />
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+
+            {/* Sign Out Button */}
+            <View style={styles.footer}>
+              <TouchableOpacity style={styles.signOutButton} onPress={handleSignOut}>
+                <Ionicons name="log-out-outline" size={24} color="#dc2626" />
+                <Text style={styles.signOutText}>Sign Out</Text>
+              </TouchableOpacity>
+            </View>
+          </Animated.View>
+        </>
+      )}
     </View>
   )
 }
@@ -472,7 +405,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#111827",
   },
-  infoButton: {
+  userButton: {
     padding: 4,
   },
   heroSection: {
@@ -651,37 +584,35 @@ const styles = StyleSheet.create({
     marginLeft: 6,
     fontWeight: "500",
   },
-  articlesSection: {
+  articlesPreview: {
     padding: 20,
     backgroundColor: "#f9fafb",
   },
-  articlesSectionHeader: {
-    marginBottom: 24,
+  previewHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 16,
   },
-  articlesTitle: {
-    fontSize: 24,
+  previewTitle: {
+    fontSize: 20,
     fontWeight: "bold",
     color: "#111827",
-    marginBottom: 4,
   },
-  articlesSubtitle: {
-    fontSize: 16,
-    color: "#6b7280",
+  viewAllText: {
+    fontSize: 14,
+    color: "#16a34a",
+    fontWeight: "600",
   },
-  articlesGrid: {
-    gap: 16,
+  horizontalScroll: {
+    marginHorizontal: -20,
+    paddingHorizontal: 20,
   },
-  articleRow: {
-    flexDirection: "row",
-    gap: 12,
-  },
-  singleArticleRow: {
-    justifyContent: "flex-start",
-  },
-  modernArticleCard: {
-    flex: 1,
+  previewCard: {
+    width: 120,
+    marginRight: 12,
     backgroundColor: "white",
-    borderRadius: 16,
+    borderRadius: 12,
     overflow: "hidden",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
@@ -689,37 +620,16 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 3,
   },
-  modernArticleImage: {
+  previewImage: {
     width: "100%",
-    height: 120,
+    height: 80,
   },
-  articleContent: {
-    padding: 12,
-  },
-  articleBadge: {
-    backgroundColor: "#f3f4f6",
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 12,
-    alignSelf: "flex-start",
-    marginBottom: 8,
-  },
-  articleBadgeText: {
-    fontSize: 10,
-    color: "#6b7280",
-    fontWeight: "600",
-    textTransform: "uppercase",
-  },
-  modernArticleTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: "#111827",
-    marginBottom: 4,
-  },
-  articleExcerpt: {
+  previewCardTitle: {
     fontSize: 12,
-    color: "#6b7280",
-    lineHeight: 16,
+    fontWeight: "600",
+    color: "#111827",
+    padding: 8,
+    textAlign: "center",
   },
   bottomSpacer: {
     height: 20,
@@ -762,5 +672,131 @@ const styles = StyleSheet.create({
   activeTabLabel: {
     color: "#16a34a",
     fontWeight: "600",
+  },
+  // Sidebar Styles
+  overlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    zIndex: 999,
+  },
+  overlayTouch: {
+    flex: 1,
+  },
+  sidebar: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    bottom: 0,
+    width: SIDEBAR_WIDTH,
+    backgroundColor: "white",
+    paddingTop: 50,
+    shadowColor: "#000",
+    shadowOffset: { width: -2, height: 0 },
+    shadowOpacity: 0.25,
+    shadowRadius: 10,
+    elevation: 10,
+    zIndex: 1000,
+  },
+  sidebarHeader: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    paddingHorizontal: 20,
+    paddingBottom: 10,
+  },
+  closeButton: {
+    padding: 8,
+  },
+  userInfo: {
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingBottom: 30,
+    borderBottomWidth: 1,
+    borderBottomColor: "#f3f4f6",
+  },
+  avatarContainer: {
+    marginBottom: 16,
+  },
+  avatar: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+  },
+  avatarPlaceholder: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: "#dcfce7",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  userName: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#111827",
+    marginBottom: 4,
+  },
+  userEmail: {
+    fontSize: 14,
+    color: "#6b7280",
+  },
+  menuContainer: {
+    flex: 1,
+    paddingTop: 20,
+  },
+  menuItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: "#f9fafb",
+  },
+  menuIconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#f0fdf4",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 16,
+  },
+  menuContent: {
+    flex: 1,
+  },
+  menuTitle: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#111827",
+    marginBottom: 2,
+  },
+  menuSubtitle: {
+    fontSize: 12,
+    color: "#6b7280",
+  },
+  footer: {
+    padding: 20,
+    borderTopWidth: 1,
+    borderTopColor: "#f3f4f6",
+  },
+  signOutButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 16,
+    paddingHorizontal: 24,
+    backgroundColor: "#fef2f2",
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#fecaca",
+  },
+  signOutText: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#dc2626",
+    marginLeft: 8,
   },
 })
