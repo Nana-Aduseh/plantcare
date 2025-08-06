@@ -79,24 +79,24 @@ export default function HomePage() {
         console.log("Navigate to profile edit")
       },
     },
-    {
-      icon: "notifications-outline",
-      title: "Notifications",
-      subtitle: "Manage your notification preferences",
-      onPress: () => {
-        setSidebarVisible(false)
-        console.log("Navigate to notifications")
-      },
-    },
-    {
-      icon: "bookmark-outline",
-      title: "Saved Articles",
-      subtitle: "View your bookmarked plant guides",
-      onPress: () => {
-        setSidebarVisible(false)
-        console.log("Navigate to saved articles")
-      },
-    },
+    // {
+    //   icon: "notifications-outline",
+    //   title: "Notifications",
+    //   subtitle: "Manage your notification preferences",
+    //   onPress: () => {
+    //     setSidebarVisible(false)
+    //     console.log("Navigate to notifications")
+    //   },
+    // },
+    // {
+    //   icon: "bookmark-outline",
+    //   title: "Saved Articles",
+    //   subtitle: "View your bookmarked plant guides",
+    //   onPress: () => {
+    //     setSidebarVisible(false)
+    //     console.log("Navigate to saved articles")
+    //   },
+    // },
     {
       icon: "time-outline",
       title: "Scan History",
@@ -106,15 +106,15 @@ export default function HomePage() {
         console.log("Navigate to scan history")
       },
     },
-    {
-      icon: "settings-outline",
-      title: "Settings",
-      subtitle: "App preferences and configurations",
-      onPress: () => {
-        setSidebarVisible(false)
-        console.log("Navigate to settings")
-      },
-    },
+    // {
+    //   icon: "settings-outline",
+    //   title: "Settings",
+    //   subtitle: "App preferences and configurations",
+    //   onPress: () => {
+    //     setSidebarVisible(false)
+    //     console.log("Navigate to settings")
+    //   },
+    // },
     {
       icon: "help-circle-outline",
       title: "Help & Support",
